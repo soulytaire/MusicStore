@@ -12,6 +12,7 @@
 #include "Brass.h"
 #include "Instrument.h"
 using namespace std;
+using std::unique_ptr;
 
 int main()
 {
@@ -60,7 +61,6 @@ int main()
 		cout << "Loaded warranty number: " << warrantyNumber << endl;
 		cout << "Loaded delivery cost: " << deliveryCost << endl;
 	}
-	inFile.ignore(numeric_limits<streamsize>::max(), '\n'); // skip empty lines
 
 	// reconstruct instruments from file data
 	string type, brand, model, color;

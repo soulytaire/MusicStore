@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <memory>
+using std::unique_ptr;
 using namespace std;
 
 class Instrument
@@ -9,7 +11,7 @@ protected:
     string instrumentType; // guitar: bass, ukulele, etc; bowed: violin, cello, etc; brass: sax, flute, etc; keyboard: piano, midi, etc.; drumkit: "snare", "tom", etc;
     string brand, model, color;
     float price, weight;
-    bool electric; //electric || acoustic
+    bool electric; // electric || acoustic
 
 public:
     Instrument();
@@ -18,7 +20,7 @@ public:
     // pure virtual functions
     virtual string createWarrantyNumber() const = 0;
     virtual void printData(ostream &out) const;
-    //implemented
+    // implemented
     virtual float calculateDeliveryCost();
 
     bool operator<(const Instrument &other) const;

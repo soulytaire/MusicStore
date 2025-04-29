@@ -11,8 +11,10 @@
 #include <vector>
 #include <stdexcept>
 #include <algorithm>
+#include <memory>
 
 using namespace std;
+using std::unique_ptr;
 
 // default
 Instrument::Instrument()
