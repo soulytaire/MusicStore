@@ -1,6 +1,6 @@
 #pragma once
-//key
-// type : saxophone, trumpet, flute, recorder
+
+// brassType : saxophone, trumpet, flute, recorder
 //range : tenor, bass, alto, batirone, soprano
 
 #include "Instrument.h"
@@ -26,11 +26,8 @@ public:
 		string color, float weight, float price);
 
 
-	// Override methods
-
 	string createWarrantyNumber() const override;
 	virtual void printData(ostream& out) const override;
-
 
 
 };

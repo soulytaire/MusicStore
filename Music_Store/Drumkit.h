@@ -17,6 +17,6 @@ public:
 		string color, float weight, float price);
 
 	string createWarrantyNumber() const override;
-	virtual void printData(ostream& out) const override;
+	void printData(ostream& out) const override;
     
 };

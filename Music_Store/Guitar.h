@@ -17,8 +17,8 @@ public:
 		bool electric, string brand, string model,
 		string color, float weight, float price);
 
-	// Override methods
+	
 	string createWarrantyNumber() const override;
-	virtual void printData(ostream& out) const override;
+	void printData(ostream& out) const override;
 
 };

@@ -3,37 +3,43 @@
 #include <string>
 using namespace std;
 
-class Instrument {
+class Instrument
+{
 protected:
-    string instrumentType;  // New field for all instrument categories
+    string instrumentType; // guitar: bass, ukulele, etc; bowed: violin, cello, etc; brass: sax, flute, etc; keyboard: piano, midi, etc.; drumkit: "snare", "tom", etc;
     string brand, model, color;
     float price, weight;
-    bool electric;
-
+    bool electric; //electric || acoustic
 
 public:
     Instrument();
     Instrument(string instrumentType, bool electric, string brand, string model, string color, float weight, float price);
-        
-    virtual string createWarrantyNumber() const = 0;  // Must be implemented by subclasses
+
+    // pure virtual functions
+    virtual string createWarrantyNumber() const = 0;
+    virtual void printData(ostream &out) const;
+    //implemented
     virtual float calculateDeliveryCost();
-    virtual void printData(ostream& out) const = 0;  // Allow subclasses to override
 
-    // Common operators for all instruments
-    bool operator<(const Instrument& other) const;
-    bool operator==(const Instrument& other) const;
+    bool operator<(const Instrument &other) const;
+    bool operator==(const Instrument &other) const;
 
+    virtual ~Instrument() = default;
 
-    virtual ~Instrument() = default;  // Proper virtual destructor
+    static unique_ptr<Instrument> createInstrument(string instrumentType, string brand, string model, string color, float weight, float price, bool electric);
 
-
-    static Instrument* createInstrument(string instrumentType, string brand, string model, string color, float weight, float price, bool electric);
-
-
-
-    friend ostream& operator<<(ostream& out, const Instrument& inst) {
+    friend ostream &operator<<(ostream &out, const Instrument &inst)
+    {
         inst.printData(out);
         return out;
     }
 
+    string getType() const { return instrumentType; }
+    string getBrand() const { return brand; }
+    string getModel() const { return model; }
+    string getColor() const { return color; }
+
+    float getPrice() const { return price; }
+    float getWeight() const { return weight; }
+    bool isElectric() const { return electric; }
 };

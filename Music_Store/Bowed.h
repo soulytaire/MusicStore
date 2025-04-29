@@ -9,7 +9,7 @@ using namespace std;
 class Bowed : public Instrument {
 protected:
 	static vector<string> bowedSizes;
-	string bowedSize;  // Instrument size (e.g., "4/4", "3/4")
+	string bowedSize;  // Instrument size ("4/4", "3/4")
 public:
 	Bowed();
 	Bowed(string instrumentType, string bowedSize,
@@ -17,7 +17,7 @@ public:
 		string color, float weight, float price);
 
 	string createWarrantyNumber() const override;
-	virtual void printData(ostream& out) const override;
+	void printData(ostream& out) const override;
 
 
 };

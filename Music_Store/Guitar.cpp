@@ -6,7 +6,7 @@
 using namespace std;
 
 
-//vector<string> Guitar::guitarTypes = { "guitar", "bass", "ukulele"};
+//guitarTypes = { "guitar", "bass", "ukulele"};
 
 Guitar::Guitar()
 	: Instrument() { 
@@ -27,7 +27,7 @@ Guitar::Guitar(string instrumentType, int numFrets, int numStrings, bool hasFret
 
 
 string Guitar::createWarrantyNumber() const {
-	return instrumentType.substr(0, 2) + brand.substr(0, 3) + model.substr(0, 3) + to_string(numStrings);
+	return "GTR" + brand.substr(0, 3) + model.substr(0, 3) + to_string(numStrings) + to_string(numFrets);
 }
 
 void Guitar::printData(ostream& out) const {

@@ -6,7 +6,7 @@ using namespace std;
 
 typedef string note;
 
-//vector<string> Keyboard::keyTypes = { "piano", "midi", "synthesizer", "organ"};
+//keyTypes = { "piano", "midi", "synthesizer", "organ"};
 
 Keyboard::Keyboard()
 	: Instrument() {
@@ -34,7 +34,7 @@ int Keyboard::calculateRegisters() const {
 }
 
 string Keyboard::createWarrantyNumber() const {
-	return instrumentType.substr(0, 2) + to_string(numSounds) +brand.substr(0, 3) + model.substr(0, 3);
+	return "KEY" + instrumentType.substr(0, 2) + to_string(numSounds) + brand.substr(0, 3) + model.substr(0, 3);
 }
 
 void Keyboard::printData(ostream& out) const {
